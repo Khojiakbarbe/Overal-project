@@ -2,6 +2,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './Pages/Home'
 import About from './Pages/About'
+import Products from './Pages/Products'
 
 function App() {
 
@@ -24,6 +25,9 @@ function App() {
     {
       path: '/about',
       element: <About />
+    },{
+      path:'/products',
+      element:<Products />
     }
   ])
 

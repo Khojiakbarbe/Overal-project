@@ -1,3 +1,94 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input[type=range] {
+    height: 22px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 12px;
+    cursor: pointer;
+   
+    box-shadow: 2px 2px 1px #50555C;
+    background: #1532F0;
+    border-radius: 14px;
+    border: 0px solid #FF144B;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 0px #120AFF;
+    border: 1px solid #170FFF;
+    height: 14px;
+    width: 14px;
+    border-radius: 15px;
+    background: #E1E1E1;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -1.5px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #1532F0;
+  }
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 12px;
+    cursor: pointer;
+   
+    box-shadow: 2px 2px 1px #50555C;
+    background: #1532F0;
+    border-radius: 14px;
+    border: 0px solid #FF144B;
+  }
+  input[type=range]::-moz-range-thumb {
+    box-shadow: 1px 1px 0px #120AFF;
+    border: 1px solid #170FFF;
+    height: 14px;
+    width: 14px;
+    border-radius: 15px;
+    background: #E1E1E1;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 12px;
+    cursor: pointer;
+   
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: #1532F0;
+    border: 0px solid #FF144B;
+    border-radius: 28px;
+    box-shadow: 2px 2px 1px #50555C;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: #1532F0;
+    border: 0px solid #FF144B;
+    border-radius: 28px;
+    box-shadow: 2px 2px 1px #50555C;
+  }
+  input[type=range]::-ms-thumb {
+    margin-top: 1px;
+    box-shadow: 1px 1px 0px #120AFF;
+    border: 1px solid #170FFF;
+    height: 14px;
+    width: 14px;
+    border-radius: 15px;
+    background: #E1E1E1;
+    cursor: pointer;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: #1532F0;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: #1532F0;
+  }
+  

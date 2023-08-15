@@ -11,7 +11,7 @@ function Navbar() {
         <div className='flex gap-3'>
           <button onClick={() => navigate('/')}>Home</button>
           <button onClick={() => navigate('/about')}>About</button>
-          <button>Products</button>
+          <button onClick={() => navigate('/products')}>Products</button>
           <button>Cart</button>
         </div>
         <div className='flex gap-3'>
