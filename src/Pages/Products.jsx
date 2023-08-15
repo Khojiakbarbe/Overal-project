@@ -8,11 +8,9 @@ function Products() {
 
     const naviagate = useNavigate();
 
-    const info = useSelector(state => state.products)
-    console.log(info);
+    const info = useSelector(state => state.products);
 
     
-
     return (
         <>
             <Navbar />
@@ -23,7 +21,7 @@ function Products() {
                 <div className='grid mx-auto md:grid-cols-2 lg:grid-cols-3 gap-5 p-'>
                     {
                         info?.data.map(data => {
-                            return <div key={data.id} onClick={() => naviagate('/single', { state: { data: data } })} className='text-center mx-auto w-full shadow-[#cfc5c5f8] shadow-lg p-5 rounded-lg '>
+                            return <div key={data.id} onClick={() => naviagate('/single', { state: { data: data } })} className='text-center hover:shadow-2xl cursor-pointer transition duration-300  mx-auto w-full shadow-[#cfc5c5f8] shadow-lg p-5 rounded-lg '>
                                 <img src={data.attributes.image} className='rounded-lg h-[200px] md:h-[300px] w-full' alt="" />
                                 <p>{data.attributes.title[0].toUpperCase() +
                                     data.attributes.title.slice(1)}</p>

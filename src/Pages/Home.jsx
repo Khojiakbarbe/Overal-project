@@ -2,8 +2,16 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Navbar from '../components/Navbar'
 import img from '../assets/img.png'
+import { useNavigate } from 'react-router-dom'
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+import {  Pagination } from 'swiper/modules';
 
 function Home() {
+  const navigate = useNavigate()
 
   const [data, setData] = useState([])
 
@@ -19,6 +27,43 @@ function Home() {
   return (
     <>
       <Navbar />
+      {/* <Swiper
+        slidesPerView={3}
+        spaceBetween={30}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Pagination]}
+        className="mySwiper w-full h-full"
+      >
+        <SwiperSlide className='text-center bg-white text-[18px] flex justify-center items-center'>
+          <img src="" className='h-full w-full block' alt="" />
+        </SwiperSlide>
+        <SwiperSlide className='text-center bg-white text-[18px] flex justify-center items-center'>
+          <img src="" className='h-full w-full block' alt="" />
+        </SwiperSlide>
+        <SwiperSlide className='text-center bg-white text-[18px] flex justify-center items-center'>
+          <img src="" className='h-full w-full block' alt="" />
+        </SwiperSlide>
+        <SwiperSlide className='text-center bg-white text-[18px] flex justify-center items-center'>
+          <img src="" className='h-full w-full block' alt="" />
+        </SwiperSlide>
+        <SwiperSlide className='text-center bg-white text-[18px] flex justify-center items-center'>
+          <img src="" className='h-full w-full block' alt="" />
+        </SwiperSlide>
+        <SwiperSlide className='text-center bg-white text-[18px] flex justify-center items-center'>
+          <img src="" className='h-full w-full block' alt="" />
+        </SwiperSlide>
+        <SwiperSlide className='text-center bg-white text-[18px] flex justify-center items-center'>
+          <img src="" className='h-full w-full block' alt="" />
+        </SwiperSlide>
+        <SwiperSlide className='text-center bg-white text-[18px] flex justify-center items-center'>
+          <img src="" className='h-full w-full block' alt="" />
+        </SwiperSlide>
+        <SwiperSlide className='text-center bg-white text-[18px] flex justify-center items-center'>
+          <img src="" className='h-full w-full block' alt="" />
+        </SwiperSlide>
+      </Swiper> */}
       <div className='w-[80%] mx-auto my-10 container'>
         <div className='lg:grid grid-cols-2'>
           <div>
@@ -33,7 +78,7 @@ function Home() {
         <div className='grid mx-auto md:grid-cols-2 lg:grid-cols-3 gap-5 p-'>
           {
             data.map(data => {
-              return <div key={data.id} className='text-center mx-auto w-full shadow-[#cfc5c5f8] shadow-lg p-5 rounded-lg '>
+              return <div key={data.id} onClick={() => navigate('/single', { state: { data: data } })}  className='text-center hover:shadow-2xl cursor-pointer transition duration-300 mx-auto w-full shadow-[#cfc5c5f8] shadow-lg p-5 rounded-lg '>
                 <img src={data.attributes.image} className='rounded-lg h-[200px] md:h-[300px] w-full' alt="" />
                 <p>{data.attributes.title[0].toUpperCase() +
                   data.attributes.title.slice(1)}</p>

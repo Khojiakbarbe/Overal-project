@@ -4,6 +4,7 @@ import Home from './Pages/Home'
 import About from './Pages/About'
 import Products from './Pages/Products'
 import SinglePage from './Pages/SinglePage'
+import Cart from './Pages/Cart'
 
 function App() {
 
@@ -19,6 +20,10 @@ function App() {
     },{
       path:'/products',
       element:<Products />
+    },
+    {
+      path:'/cart',
+      element:<Cart />
     },
     {
       path:'/single',

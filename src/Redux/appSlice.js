@@ -15,11 +15,37 @@ export const appReucer = createSlice({
             state.loading = action.payload
         },
         addSavat: (state, action) => {
-            state.savat.push(action.payload)
+            const check = state.savat.find(p => p.color == action.payload.color && p.title == action.payload.color)
+            if(check){
+                check.count = action.payload.count
+            }else{
+                state.savat.push(action.payload)
+            }
+        },
+        incProduct: (state, action) => {
+            state.savat = state.savat.filter(p => {
+                if (p.title == action.payload) {
+                    return p.count = p.count - 1
+                } else {
+                    return p
+                }
+            })
+        },
+        decProduct: (state, action) => {
+            state.savat = state.savat.filter(p => {
+                if (p.title == action.payload) {
+                    return p.count++
+                } else {
+                    return p
+                }
+            })
+        },
+        removeProduct:(state,action) => {
+            state.savat = state.savat.filter(p => p.title != action.payload)
         }
     }
 })
 
-export const { addData, loading , addSavat} = appReucer.actions
+export const { addData, loading, addSavat, incProduct,decProduct,removeProduct } = appReucer.actions
 
 export const Reducer = appReucer.reducer
