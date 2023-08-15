@@ -6,7 +6,7 @@ function Navbar() {
 
   return (
     <div className='bg-[#F0F6FF]'>
-      <div className='flex justify-between w-[80%] mx-auto  p-3'>
+      <div className='flex justify-between container w-[80%] mx-auto  p-3'>
         <h1 className='bg-blue-600 text-white text-2xl font-bold rounded-lg py-2 px-4' >C</h1>
         <div className='flex gap-3'>
           <button onClick={() => navigate('/')}>Home</button>

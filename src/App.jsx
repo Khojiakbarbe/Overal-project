@@ -3,19 +3,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './Pages/Home'
 import About from './Pages/About'
 import Products from './Pages/Products'
+import SinglePage from './Pages/SinglePage'
 
 function App() {
 
-  // const [filter, setFilter] = useState({
-  //   name: '',
-  //   vals: ''
-  // })
-  // useEffect(() => {
-  //   axios.get('https://strapi-store-server.onrender.com/api/products')
-  //     .then(res => console.log(res.data))
-  //     .catch(err => console.log(err))
-  //   console.log('requested');
-  // }, [filter])
 
   const routes = createBrowserRouter([
     {
@@ -28,6 +19,10 @@ function App() {
     },{
       path:'/products',
       element:<Products />
+    },
+    {
+      path:'/single',
+      element:<SinglePage />
     }
   ])
 

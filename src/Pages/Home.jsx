@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import Navbar from '../component/Navbar'
+import Navbar from '../components/Navbar'
 import img from '../assets/img.png'
 
 function Home() {
@@ -19,7 +19,7 @@ function Home() {
   return (
     <>
       <Navbar />
-      <div className='w-[80%] mx-auto my-10'>
+      <div className='w-[80%] mx-auto my-10 container'>
         <div className='lg:grid grid-cols-2'>
           <div>
             <h1 className='text-7xl font-bold text-[#394E6A] my-5'>We’re changing the way people shop.</h1>

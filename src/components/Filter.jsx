@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addData } from '../Redux/appSlice';
+import { addData, loading } from '../Redux/appSlice';
 
 
 function Filter() {
@@ -28,15 +28,15 @@ function Filter() {
     }, [re_get])
 
 
+    
     function submit(e) {
         e.preventDefault();
         setRe_get(!re_get)
-        console.log(re_get);
     }
 
     return (
 
-        <form onSubmit={submit} className='grid sm:grid-cols-2 md:grid-cols-3 rounded-md lg:grid-cols-4 bg-[#F0F6FF] p-5 gap-5'>
+        <form onSubmit={submit} className='grid items-center sm:grid-cols-2 md:grid-cols-3 rounded-md lg:grid-cols-4 bg-[#F0F6FF] p-5 gap-5'>
             <div>
                 <label htmlFor="price">Serarch Product</label>
                 <br />
@@ -92,12 +92,12 @@ function Filter() {
             <div>
                 <label htmlFor="price">Select Price {filter.price / 100}.00</label>
                 <br />
-                <input type="range" value={filter.price / 1000} onChange={(e) => setFilter({
+                <input type="range" className='w-[90%] mx-auto' value={filter.price / 1000} onChange={(e) => setFilter({
                     ...filter,
                     [e.target.name]: e.target.value * 1000
                 })} id="price" name="price" min="0" max="100" />
             </div>
-            <button>search</button>
+            <button className='bg-blue-600 text-white font-bold rounded-lg h-6'>SEARCH</button>
         </form>
     )
 }
