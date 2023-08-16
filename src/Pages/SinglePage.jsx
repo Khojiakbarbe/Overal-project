@@ -43,7 +43,7 @@ function SinglePage() {
         <>
             <ToastContainer position="top-right" />
             <Navbar />
-            <div className='container text-xl py-5 lg:h-[100vh] w-[80%] mx-auto grid lg:grid-cols-2 justify-center'>
+            <div className='container text-xl py-5 lg:h-[900px] w-[80%] mx-auto grid lg:grid-cols-2 justify-center'>
                 <div className='p-10'>
                     <img src={state.data.attributes.image} className='rounded-lg  mx-auto md:w-full h-[300px] md:h-[500px]' alt="" />
                 </div>
