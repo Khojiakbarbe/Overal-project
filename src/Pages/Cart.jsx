@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import Navbar from '../components/Navbar';
 import { decProduct, incProduct, removeProduct } from '../Redux/appSlice';
 
+import {AiOutlinePlusCircle,AiOutlineMinusCircle} from 'react-icons/ai'
 
 function Cart() {
 
@@ -17,22 +18,29 @@ function Cart() {
         position: toast.POSITION.TOP_CENTER
     });
 
-    function removeF(title){
-        dispatch(removeProduct(title))
+    function removeF(id, color) {
+        dispatch(removeProduct({ id, color }))
         notify()
+    }
+
+    function increase(id, color) {
+        dispatch(incProduct({ id, color }))
+    }
+    function decrease(id, color) {
+        dispatch(decProduct({id, color}))
     }
 
     return (
         <>
             <Navbar />
             <ToastContainer />
-            <div className='w-[80%] mx-auto my-5' >
-                <h1 className='text-2xl font-bold text-[#394E6A]'>{state.length ? 'Shopping Cart' : 'Your Cart Is Empty'}</h1>
+            <div className={`w-[90%] mx-auto py-10  ${state.length < 3  && 'h-[100vh]'}`} >
+                <h1 className='text-2xl font-bold text-[#394E6A] dark:text-white'>{state.length ? 'Shopping Cart' : 'Your Cart Is Empty'}</h1>
                 <hr className='my-5' />
-                <div className='grid grid-cols-2'>
+                <div className='grid lg:grid-cols-2 gap-10'>
                     {
-                        state.map(cart => <div key={cart.img} className='flex gap-10 my-5'>
-                            <img src={cart.img} className='h-[400px] w-[300px] rounded-lg' alt="" />
+                        state?.map((cart, i) => <div key={i} className='flex gap-10 dark:text-white my-5'>
+                            <img src={cart?.img} className='h-[400px] w-[300px] rounded-lg' alt="" />
                             <div>
                                 <h1 className='text-4xl font-bold'>{cart.title}</h1>
                                 <p className='text-xl font-bold my-5'>{cart.company}</p>
@@ -40,11 +48,11 @@ function Cart() {
                                 <p className='flex items-center my-5 gap-4'>Color: <button className='w-5 h-5 rounded-full' style={{ background: cart.color }} /></p>
                                 <p>Amount</p>
                                 <div className='flex justify-center bg-blue-700 text-2xl text-white rounded-lg p-1 gap-10 mb-10'>
-                                    <button className='bg-slate-500 flex items-center px-3 rounded-lg' onClick={() => dispatch(incProduct(cart.title))}>-</button>
+                                    <button onClick={() => decrease(cart.id, cart.color)} className='flex items-center'><AiOutlineMinusCircle/></button>
                                     <span>{cart.count}</span>
-                                    <button onClick={() => dispatch(decProduct(cart.title))} className='flex items-center px-3 rounded-lg bg-slate-500'>+</button>
+                                    <button className='flex items-center ' onClick={() => increase(cart.id, cart.color)}><AiOutlinePlusCircle/></button>
                                 </div>
-                                <p onClick={() => removeF(cart.title)} className='hover:underline cursor-pointer text-blue-700'>Remove</p>
+                                <p onClick={() => removeF(cart.id, cart.color)} className='hover:underline cursor-pointer text-blue-700'>Remove</p>
                             </div>
                         </div>)
                     }

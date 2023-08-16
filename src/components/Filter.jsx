@@ -36,19 +36,19 @@ function Filter() {
 
     return (
 
-        <form onSubmit={submit} className='grid items-center sm:grid-cols-2 md:grid-cols-3 rounded-md lg:grid-cols-4 bg-[#F0F6FF] p-5 gap-5'>
+        <form onSubmit={submit} className='grid items-center dark:bg-[#181920] dark:text-white sm:grid-cols-2 md:grid-cols-3 rounded-md lg:grid-cols-4 bg-[#F0F6FF] p-5 gap-5'>
             <div>
                 <label htmlFor="price">Serarch Product</label>
                 <br />
                 <input type='search' name='product' value={filter.product} onChange={(e) => setFilter({
                     ...filter,
                     [e.target.name]: e.target.value
-                })} className='w-full rounded-xl p-1 px-2 my-3' />
+                })} className='w-full rounded-xl dark:bg-[#272935] dark:text-white p-1 px-2 my-3' />
             </div>
             <div>
                 <label className='' htmlFor="category">Category</label>
                 <br />
-                <select id='category' className='w-full rounded-xl p-1 px-2 my-3' name='category' onChange={(e) => setFilter({
+                <select id='category' className='w-full dark:bg-[#272935] rounded-xl p-1 px-2 my-3' name='category' onChange={(e) => setFilter({
                     ...filter,
                     [e.target.name]: e.target.value
                 })}>
@@ -63,7 +63,7 @@ function Filter() {
             <div>
                 <label className='' htmlFor="company">Company</label>
                 <br />
-                <select id='company' className='w-full rounded-xl p-1 px-2 my-3' name='company' onChange={(e) => setFilter({
+                <select id='company' className='w-full dark:bg-[#272935] rounded-xl p-1 px-2 my-3' name='company' onChange={(e) => setFilter({
                     ...filter,
                     [e.target.name]: e.target.value
                 })}>
@@ -79,7 +79,7 @@ function Filter() {
             <div>
                 <label htmlFor="sort">Sort By  </label>
                 <br />
-                <select id='sort' className='w-full rounded-xl p-1 px-2 my-3' name='sort' onChange={(e) => setFilter({
+                <select id='sort' className='w-full  dark:bg-[#272935] rounded-xl p-1 px-2 my-3' name='sort' onChange={(e) => setFilter({
                     ...filter,
                     [e.target.name]: e.target.value
                 })}>

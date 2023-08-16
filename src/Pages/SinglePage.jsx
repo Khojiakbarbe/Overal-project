@@ -22,10 +22,11 @@ function SinglePage() {
     const [toCart, setToCart] = useState({
         title: state.data.attributes.title,
         company: state.data.attributes.company,
-        color: '',
-        count: 0,
+        color: state.data.attributes.colors[0],
+        count: 1,
         price: state.data.attributes.price,
-        img: state.data.attributes.image
+        img: state.data.attributes.image,
+        id: new Date().valueOf()
     })
 
 
@@ -42,17 +43,17 @@ function SinglePage() {
         <>
             <ToastContainer position="top-right" />
             <Navbar />
-            <div className='container text-xl w-[80%] mx-auto grid lg:grid-cols-2 justify-center'>
+            <div className='container text-xl py-5 lg:h-[100vh] w-[80%] mx-auto grid lg:grid-cols-2 justify-center'>
                 <div className='p-10'>
-                    <img src={state.data.attributes.image} className='rounded-lg w-full md:h-[500px]' alt="" />
+                    <img src={state.data.attributes.image} className='rounded-lg  mx-auto md:w-full h-[300px] md:h-[500px]' alt="" />
                 </div>
-                <div className=''>
-                    <h2 className='text-3xl text-[#394E6A] font-bold mt-5'>{state.data.attributes.title[0].toUpperCase() + state.data.attributes.title.slice(1)}</h2>
-                    <p className='font-bold text-[#C7C9D2]'>{state.data.attributes.company}</p>
-                    <p className='my-3'>$ {state.data.attributes.price}</p>
-                    <p className='text-lg text-[#394E6A]'>{state.data.attributes.description}</p>
+                <div >
+                    <h2 className='text-3xl text-[#394E6A] dark:text-white my-3  font-bold mt-5'>{state.data.attributes.title[0].toUpperCase() + state.data.attributes.title.slice(1)}</h2>
+                    <p className='font-bold text-[#C7C9D2] dark:text-white my-3'>{state.data.attributes.company}</p>
+                    <p className=' dark:text-white my-3'>$ {state.data.attributes.price / 100}</p>
+                    <p className='text-lg text-[#394E6A] dark:text-white my-3'>{state.data.attributes.description}</p>
 
-                    <p>Colors</p>
+                    <p className='dark:text-white my-3'>Colors</p>
                     <div className='flex gap-2'>
                         {
                             state.data.attributes.colors.map(p => <button name='color' key={p}
@@ -66,9 +67,9 @@ function SinglePage() {
                         }
                     </div>
 
-                    <label htmlFor="amount">Amount</label>
+                    <label htmlFor="amount" className='dark:text-white my-3'>Amount</label>
                     <br />
-                    <select onChange={(e) => setToCart({ ...toCart, [e.target.name]: e.target.value })} name='count' className='w-[50%] rounded-lg border p-1 px-2 my-3' id='amount'>
+                    <select onChange={(e) => setToCart({ ...toCart, [e.target.name]: e.target.value })} name='count' className='w-[50%] dark:bg-[#394E6A] rounded-lg border p-1 px-2 my-3' id='amount'>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

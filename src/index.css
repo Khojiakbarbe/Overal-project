@@ -2,36 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.colors {
-  width: 20px;
-  height: 20px;
-  background: #ddd;
-  margin: 20px 90px;
-  position: relative;
-  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.colors label {
-  display: block;
-  width: 20px;
-  height: 20px;
-  -webkit-transition: all .5s ease;
-  -moz-transition: all .5s ease;
-  -o-transition: all .5s ease;
-  -ms-transition: all .5s ease;
-  transition: all .5s ease;
-  cursor: pointer;
-  position: absolute;
-  top: 1px;
-  z-index: 1;
-  background: Black;
-  -webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.5);
-  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.colors input[type=checkbox]:checked+label {
-  background: green;
+.active {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  height: 35px;
+  border-radius: 10px;
+  color: white;
+  background: #021431;
 }
