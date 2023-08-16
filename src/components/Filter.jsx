@@ -119,7 +119,7 @@ export default Filter
 export const Pagination = () => {
     const dispatch = useDispatch();
 
-    const [active, setActive] = useState(null)
+    const [active, setActive] = useState(0)
 
     return (
         <div className='flex justify-end my-5'>
