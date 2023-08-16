@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Navbar from '../components/Navbar'
-import img from '../assets/img.png'
 import { useNavigate } from 'react-router-dom'
 
 import 'swiper/css';
 import 'swiper/css/pagination';
+import Slider from '../components/Slider'
 
 
 function Home() {
@@ -30,12 +30,12 @@ function Home() {
       <div className='w-[80%] mx-auto py-10 text-[#394E6A] dark:text-white container'>
         <div className='lg:grid grid-cols-2'>
           <div >
-            <h1 className='text-7xl font-bold  my-5'>We’re changing the way people shop.</h1>
+            <h1 className='text-4xl md:text-7xl font-bold  my-5'>We’re changing the way people shop.</h1>
             <p className='text-xl my-7 '>Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua. Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.</p>
             <button className='bg-blue-500 dark:bg-pink-400 dark:text-black hover:bg-blue-700 transition duration-500 text-white p-3 rounded-lg' onClick={() => navigate('/products')}>OUR PRODUCTS</button>
           </div>
           <div className='p-11 hidden lg:inline '>
-            <img src={img} className='rounded-xl' />
+            <Slider />
           </div>
         </div>
         <h1 className='text-2xl font-bold'>Featured Products</h1>
