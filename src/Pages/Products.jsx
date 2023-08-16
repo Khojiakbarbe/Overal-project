@@ -15,7 +15,7 @@ function Products() {
     return (
         <>
             <Navbar />
-            <div className='container w-[80%] mx-auto py-5'>
+            <div className={`container w-[80%] mx-auto py-5 ${!info?.data.length && 'h-[100vh]'}`}>
                 <Filter />
 
                 <p className='text-[#394E6A] dark:text-white my-5'>{info.data.length} product</p>
@@ -30,7 +30,7 @@ function Products() {
                             </div>
                         })
                     }
-                    {!info?.data.length && <p className='text-2xl'>Sorry, no products matched your search...</p>}
+                    {!info?.data.length &&  <p className='text-2xl'>Sorry, no products matched your search...</p>}
                 </div>
 
                 <Pagination />
