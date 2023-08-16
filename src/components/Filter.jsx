@@ -1,11 +1,16 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { addData, loading } from '../Redux/appSlice';
+import { useDispatch, useSelector } from 'react-redux'
+import { addData, page } from '../Redux/appSlice';
 
 
+
+
+
+var pages = 0;
 function Filter() {
     const dispatch = useDispatch();
+    const page = useSelector(state => state.products.page)
 
 
     const [filter, setFilter] = useState({
@@ -17,18 +22,25 @@ function Filter() {
     })
 
 
+
     const [re_get, setRe_get] = useState(true)
 
     useEffect(() => {
-        axios.get(`https://strapi-store-server.onrender.com/api/products?search=${filter.product}&category=${filter.category}&company=${filter.company}&order=${filter.sort}&price=${filter.price}`)
-            .then(res => {
-                dispatch(addData(res.data.data))
-            })
-            .catch(err => console.log(err))
+        getDate()
     }, [re_get])
 
+    useEffect(() => {
+        getDate()
+    }, [page])
 
-    
+    const getDate = async () => {
+        const res = await axios.get(`https://strapi-store-server.onrender.com/api/products?search=${filter.product}&category=${filter.category}&company=${filter.company}&order=${filter.sort}&price=${filter.price}&page=${page}`)
+        dispatch(addData(res.data.data))
+        pages = res.data.meta.pagination.pageCount
+    }
+
+
+
     function submit(e) {
         e.preventDefault();
         setRe_get(!re_get)
@@ -103,3 +115,19 @@ function Filter() {
 }
 
 export default Filter
+
+export const Pagination = () => {
+    const dispatch = useDispatch();
+
+    const [active, setActive] = useState(null)
+
+    return (
+        <div className='flex justify-end my-5'>
+            <div className='grid grid-cols-3 gap-  md:w-[35%] lg:w-[28%] bg-[#F0F6FF] rounded-lg border overflow-hidden'>
+                {
+                    Array.from(Array(pages).keys()).map(p => <button key={p} onClick={() => (dispatch(page(String(p + 1))), setActive(p))} className={`px-10  text-[#394E6A] ${active == p ? 'bg-[#b3b8c9]' : ''}`}>{p + 1}</button>)
+                }
+            </div>
+        </div>
+    );
+}

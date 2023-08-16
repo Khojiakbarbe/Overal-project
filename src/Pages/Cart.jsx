@@ -1,7 +1,6 @@
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import { useSelector, useDispatch } from 'react-redux'
 import Navbar from '../components/Navbar';
 import { decProduct, incProduct, removeProduct } from '../Redux/appSlice';

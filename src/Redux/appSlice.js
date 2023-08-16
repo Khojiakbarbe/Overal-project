@@ -6,7 +6,8 @@ export const appReucer = createSlice({
     initialState: {
         data: [],
         loading: false,
-        savat: LocalCart()
+        savat: LocalCart(),
+        page:''
     },
     reducers: {
         addData: (state, action) => {
@@ -48,10 +49,13 @@ export const appReucer = createSlice({
             const find = state.savat.find(p => p.id == action.payload.id && p.color == action.payload.color)
             state.savat = state.savat.filter(p => p != find)
             addToLocal(state.savat)
+        },
+        page:(state,action) => {
+            state.page = action.payload
         }
     }
 })
 
-export const { addData, loading, addSavat, incProduct, decProduct, removeProduct } = appReucer.actions
+export const { addData, loading, addSavat, incProduct, decProduct, removeProduct,page } = appReucer.actions
 
 export const Reducer = appReucer.reducer
