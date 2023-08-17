@@ -47,9 +47,9 @@ function Navbar() {
               <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" className="h-6 w-6" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM64 256c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H96c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg>
             </button>
           </div>
-          <div className={`items-center justify-between ${!navLinks && 'hidden'} w-full md:flex md:w-auto md:order-1" id="navbar-sticky`}>
+          <div className={`items-center justify-between ${!navLinks && 'hidden'} w-full md:flex order-3 md:order-2 relative md:w-auto md:order-1" id="navbar-sticky`}>
 
-            <div className="flex items-center flex-col dark:text-white font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-5 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <div className="flex items-center flex-col dark:text-white font-medium border border-gray-100 rounded-lg absolute p-3 md:relative bg-gray-50 md:flex-row md:space-x-5 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <NavLink to="/"
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "active dark:bg-[#414558]" : ""
