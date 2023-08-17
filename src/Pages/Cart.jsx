@@ -33,7 +33,7 @@ function Cart() {
         <>
             <Navbar />
             <ToastContainer />
-            <div className={`w-[90%] mx-auto container py-10  ${state.length < 3  && 'lg:h-[100vh]'}`} >
+            <div className='w-[90%] mx-auto container py-10  ' >
                 <h1 className='text-2xl font-bold text-[#394E6A] dark:text-white'>{state.length ? 'Shopping Cart' : 'Your Cart Is Empty'}</h1>
                 <hr className='my-5' />
                 <div className='grid lg:grid-cols-2 gap-10'>
